@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import Card from "./components/Card";
-// import Card from "./components/Card";
 function App() {
   const [data, setData] = useState([]);
-  const [image, setImage] = useState('');
   const apikey =
     "yRyuc91Q3g1w6BB62KSDc1F3cnwDkBEz4NXnMWQUzn5m_RF6vXc6bBRP/YMU0gJ4Bm4o0mVdLqZ6nJQ";
 
@@ -32,13 +30,12 @@ function App() {
     fetchData();
   }, []);
 
-//   const productImage = data[0].product[0];
-//   setImage(productImage);
-console.log("Echo " +data.name)
-
   return (
     <>
-     {/* <Card SKU={data} /> */}
+    <div className="flex justify-center">
+    <Card SKU={data.SKU} dimension={data.dimension} name={data.name} product={data.product[0]} size={data.size} updatedAt={data.updatedAt} weight={data.weight}  createdAt={data.createdAt}/>
+
+    </div>
     </>
   );
 }
